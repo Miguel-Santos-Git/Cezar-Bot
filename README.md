@@ -1,5 +1,5 @@
 # Cezar Bot
-A discord bot for more functions
+A discord bot for many functions: RPG, tickets, and others...
 
 
 ## License
