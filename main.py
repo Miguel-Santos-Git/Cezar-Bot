@@ -1,11 +1,24 @@
 import discord
 from discord.ext import commands
+import sqlite3
 import json
 
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix=".",intents=intents)
 
-with open("token.json","r") as file:
+connection = sqlite3.connect("bank.db")
+
+cursor = connection.cursor()
+cursor.execute("""CREATE TABLE main_table (
+                id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                username TEXT NOT NULL,
+                name TEXT NOT NULL,
+                level INTEGER NOT NULL,
+                money INTEGER NOT NULL
+                )""")
+connection.commit()
+
+with open("configs.json","r") as file:
     token = json.load(file)["token"]
 
 @bot.event
