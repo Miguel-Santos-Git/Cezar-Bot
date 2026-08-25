@@ -1,0 +1,24 @@
+{
+    "slime": {
+        "name": "Slime",
+        "base_damage": 10,
+        "life": 100,
+        "skills": {
+            "slash": 1.2
+        },
+        "levelmin": 1,
+        "levelmax": 50, 
+        "weight": 80
+    },
+    "goblin": {
+        "name": "Goblin",
+        "base_damage": 18,
+        "life": 125,
+        "skills": {
+            "punsh": 1.1
+        },
+        "levelmin": 1,
+        "levelmax": 50, 
+        "weight": 80
+    }
+}
