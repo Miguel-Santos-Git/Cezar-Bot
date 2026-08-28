@@ -6,6 +6,7 @@ import json
 import time
 import random
 from enemy import Enemy 
+from views.battle_views import start_battle_view as Battle_view
 
 #defalth vars
 intents = discord.Intents.all()
@@ -124,13 +125,17 @@ async def hunt(interaction: discord.Interaction):
 
     monster = Enemy(all_monsters[select_monster])
     infos = monster.get_infos()
+
+    view = Battle_view(monster,interaction.user.id)
+
     await interaction.response.send_message(f""" 
     __Select enemy:__
 - Name: {infos["name"]}
 - Base damage: {infos["base_damage"]}
 - Max life: {infos["maxlife"]}
 - Level: {infos["level"]}   
-    """)
+    """, view=view)
+
 
 connection.commit()
 
